@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * StudyGraph theme tokens.
+ * Light theme is the default; `.dark` on <html> swaps to the deep
+ * navy/slate base with teal/indigo accents. Kept centralized here so
+ * Tailwind classes (bg-base, text-content-primary, ...) never hardcode color.
+ */
+:root {
+  --color-base: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-elevated: #ffffff;
+  --color-border: #e2e5ea;
+
+  --color-content-primary: #10151f;
+  --color-content-secondary: #444c5c;
+  --color-content-muted: #8892a0;
+
+  --color-accent-teal: #0d9488;
+  --color-accent-indigo: #4f46e5;
+
+  --color-danger: #dc2626;
+  --color-wash: rgba(79, 70, 229, 0.05);
+
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  color-scheme: light;
+}
+
+.dark {
+  --color-base: #0a0e17;
+  --color-surface: #10151f;
+  --color-elevated: #161d2c;
+  --color-border: #232b3d;
+
+  --color-content-primary: #eef1f6;
+  --color-content-secondary: #aab4c5;
+  --color-content-muted: #6b7690;
+
+  --color-accent-teal: #2dd4bf;
+  --color-accent-indigo: #818cf8;
+
+  --color-danger: #f87171;
+  --color-wash: rgba(129, 140, 248, 0.07);
+
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-content-primary);
+  /* A restrained radial wash behind the whole app -- present at ~4-6%
+     opacity so it reads as depth rather than a visible gradient. */
+  background-image: radial-gradient(ellipse 1200px 600px at 15% -10%, var(--color-wash), transparent 60%);
+  background-attachment: fixed;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-content-muted);
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

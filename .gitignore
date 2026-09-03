@@ -1,0 +1,36 @@
+# Environment files (never commit real secrets)
+.env
+.env.local
+.env*.local
+frontend/.env
+frontend/.env.local
+frontend/.env*.local
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# Vercel
+.vercel/
+frontend/.vercel/
+
+# Backend / Python
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.venv/
+backend/venv/
+backend/*.egg-info/
+backend/.pytest_cache/
+backend/**/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+
+# General
+.DS_Store
+*.log
+.vscode/
+.idea/
