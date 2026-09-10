@@ -6,7 +6,7 @@
 
 import { getStoredToken } from "@/lib/auth/token";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
 
 /** Attaches `Authorization: Bearer <token>` whenever AuthProvider has a
  * stored token, so every apiFetch/apiFetchStream call is authenticated
